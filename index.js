@@ -1,7 +1,6 @@
-var Mediawiki = require('nodemw');
 var request = require('request');
 
-function getRandomArticle(opts, done) {
+function getRandomWikiTopic(opts, done) {
   // var topics = jsonfile.readFileSync(__dirname + '/data/topics.json');
   var language;
   var wikipediaDomain;
@@ -33,24 +32,13 @@ function getRandomArticle(opts, done) {
   };
   request(requestOpts, parseResponse);
 
-  function parseResponse(error, response, body) {
+  function parseResponse(error, response) {
     if (error) {
       done(error);
     }
     else {
       var randomTopic = getLast(decodeURI(response.req.path)).replace('_', ' ');
-      var mwOpts = {
-        server: language + '.wikipedia.org',
-        path: '/w',
-        debug: false
-      };
-
-      if (wikipediaDomain) {
-        mwOpts.server = wikipediaDomain;
-      }
-
-      var wikipedia = new Mediawiki(mwOpts);
-      wikipedia.getArticle(randomTopic, done);
+      done(null, randomTopic);
     }
   }
 }
@@ -62,4 +50,4 @@ function getLast(path) {
   }
 }
 
-module.exports = getRandomArticle;
+module.exports = getRandomWikiTopic;

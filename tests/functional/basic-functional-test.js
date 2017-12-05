@@ -1,5 +1,5 @@
 var test = require('tape');
-var getRandomArticle = require('../../get-random-article');
+var getRandomArticle = require('../../index');
 
 var testCases = [
   {
@@ -26,11 +26,11 @@ function runTest(testCase) {
   test('Basic functional test', function basicTest(t) {
     getRandomArticle(testCase.opts, checkResult);
 
-    function checkResult(error, article) {
-      t.ok(!error, 'No error while getting article.');
-      t.ok(article.length > 0, 'Article is longer than 0.');
-      t.equal(article.indexOf('<html '), -1, 'Content is WikiText, not html.');
-      // console.log(article);
+    function checkResult(error, topic) {
+      t.ok(!error, 'No error while getting topic.');
+      t.ok(topic.length > 0, 'Topic is longer than 0.');
+      t.equal(topic.indexOf('\n'), -1, 'Topic has no linebreaks.');
+      console.log(topic);
       t.end();
     }
   });
