@@ -1,7 +1,7 @@
 get-random-wiki-topic
 ==================
 
-Gets a random Wikipedia article in Wikitext (instead of HTML).
+Gets a random Wikipedia topic.
 
 Installation
 ------------
