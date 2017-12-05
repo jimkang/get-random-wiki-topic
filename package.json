@@ -1,6 +1,6 @@
 {
   "name": "get-random-wiki-topic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gets a random Wikipedia topic.",
   "main": "get-random-wiki-topic.js",
   "scripts": {
@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git@github.com:jimkang/get-random-wiki-topic.git"
   },
-  "keywords": ["wiki", "wikipedia", "random"],
+  "keywords": [
+    "wiki",
+    "wikipedia",
+    "random"
+  ],
   "author": "Jim Kang",
   "license": "MIT",
   "bugs": {
