@@ -19,10 +19,9 @@ function getRandomWikiTopic(opts, done) {
   var randomURL;
 
   if (wikipediaDomain && wikipediaProtocol) {
-    randomURL = wikipediaProtocol + '://' + wikipediaDomain +
-      '/wiki/Special:Random';
-  }
-  else if (language) {
+    randomURL =
+      wikipediaProtocol + '://' + wikipediaDomain + '/wiki/Special:Random';
+  } else if (language) {
     randomURL = 'https://' + language + '.wikipedia.org/wiki/Special:Random';
   }
 
@@ -35,8 +34,7 @@ function getRandomWikiTopic(opts, done) {
   function parseResponse(error, response) {
     if (error) {
       done(error);
-    }
-    else {
+    } else {
       var randomTopic = getLast(decodeURI(response.req.path)).replace('_', ' ');
       done(null, randomTopic);
     }
