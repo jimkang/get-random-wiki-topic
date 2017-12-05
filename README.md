@@ -11,11 +11,11 @@ Installation
 Usage
 -----
 
-    var getRandomArticle = require('get-random-wiki-topic');
+    var getRandomWikiTopic = require('get-random-wiki-topic');
     var opts = {
       language: 'en'
     };
-    getRandomArticle(opts, logArticle);
+    getRandomWikiTopic(opts, logArticle);
 
     function logTopic(error, topic) {
       if (error) {
